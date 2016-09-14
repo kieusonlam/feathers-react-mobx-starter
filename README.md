@@ -15,7 +15,7 @@ Based on [Xerios/mobx-isomorphic-starter](https://github.com/Xerios/mobx-isomorp
 - Document title, keywords and description change integration
 - CSS and SCSS compilation
 - Hot reload for development ( page auto-refresh )
-- Battle-tested structure ( see UnityList.com )
+- Server Side Rendering
 
 ## Depencencies
 
