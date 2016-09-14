@@ -6,7 +6,7 @@
 
 This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
 
-Based on Xerios/mobx-isomorphic-starter
+Based on [Xerios/mobx-isomorphic-starter](https://github.com/Xerios/mobx-isomorphic-starter)
 
 ## Features
 
