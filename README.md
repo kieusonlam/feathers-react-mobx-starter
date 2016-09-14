@@ -1,4 +1,4 @@
-# feathers-mobx
+# feathers-react-mobx-starter
 
 > 
 
