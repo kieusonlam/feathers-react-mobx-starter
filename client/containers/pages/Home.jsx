@@ -1,9 +1,10 @@
 import React from 'react'
-//import { inject, observer } from 'mobx-react'
+import { action } from 'mobx'
+//import { observer } from 'mobx-react'
 
-//@observer(["state","store"]) // Only required if you use or change the state outside fetchData
+//@observer(["state"]) // Only required if you use or change the state outside fetchData
 export default class Home extends React.Component {
-    static fetchData({state}){
+    @action static fetchData({state}){
         state.app.title = 'Home'
     }
     render() {

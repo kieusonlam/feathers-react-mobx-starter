@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router'
-import App from './containers/App'
+import App from './containers/App.jsx'
 
 /**
  * Asynchronously load a file
@@ -9,7 +9,7 @@ import App from './containers/App'
  */
 function requireAsync(main) {
     return function(location, next) {
-        next(null, require('./containers/pages/' + main))
+        next(null, require('./containers/pages/' + main + '.jsx'))
     }
 }
 
@@ -24,8 +24,6 @@ export default function createRoutes() {
                 <Route path="/"      getComponent={requireAsync('Home')}/>
                 <Route path="browse" getComponent={requireAsync('Browse')}/>
                 <Route path="about"  getComponent={requireAsync('About')}/>
-                <Route path="timer"  getComponent={requireAsync('Timer/Timer')}/>
-                <Route path="chat"  getComponent={requireAsync('Message/Message')}/>
                 <Route path="*"      getComponent={requireAsync('NotFound')}/>
             </Route>)
 }

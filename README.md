@@ -1,31 +1,10 @@
-# feathers-react-mobx-starter
+# kslwebapp
 
 > 
 
 ## About
 
 This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
-
-Based on [Xerios/mobx-isomorphic-starter](https://github.com/Xerios/mobx-isomorphic-starter)
-
-## Features
-
-- Simplified flexible isomorphic system ( fetchData )
-- Uses Provider to inject global state into Components
-- Document title, keywords and description change integration
-- CSS and SCSS compilation
-- Hot reload for development ( page auto-refresh )
-- Server Side Rendering
-
-## Depencencies
-
-- Feathers JS
-- React + react-router
-- Mobx + mobx-react
-- Socket IO
-- Babel
-- Webpack
-- Sass/SCSS loaders
 
 ## Getting Started
 
@@ -35,7 +14,7 @@ Getting up and running is as easy as 1, 2, 3.
 2. Install your dependencies
     
     ```
-    cd path/to/feathers-mobx; npm install
+    cd path/to/kslwebapp; npm install
     ```
 
 3. Start your app

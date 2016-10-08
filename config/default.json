@@ -1,11 +1,11 @@
 {
   "host": "localhost",
   "port": 3030,
-  "mongodb": "mongodb://localhost:27017/feathersMobx",
+  "mongodb": "mongodb://localhost:27017/kslwebapp",
   "public": "../public/",
   "auth": {
     "token": {
-      "secret": "/HJzCjGpdj784G7wmKz1WubB/nh1WRdHQeWewBsk6KoeUwFTbiEb9uxc6rZ4g5ojB6foWYTviKv2M0hGrz5Vgg=="
+      "secret": "udsUsYWrnLOeiDr6ecGrYhUXCQyPmEnqZnt/G9XJ1BUyEgNcpFbwz1YoVByRNv2OkHrEvwbSs21AkmnX5IPI7Q=="
     },
     "local": {}
   }

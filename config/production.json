@@ -1,11 +1,11 @@
 {
-  "host": "feathers-mobx-app.feathersjs.com",
-  "port": 80,
-  "mongodb": "DATABASE_URL",
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://localhost:27017/kslwebapp",
   "public": "../public/",
   "auth": {
     "token": {
-      "secret": "FEATHERS_AUTH_SECRET"
+      "secret": "udsUsYWrnLOeiDr6ecGrYhUXCQyPmEnqZnt/G9XJ1BUyEgNcpFbwz1YoVByRNv2OkHrEvwbSs21AkmnX5IPI7Q=="
     },
     "local": {}
   }

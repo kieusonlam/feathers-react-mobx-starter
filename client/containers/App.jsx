@@ -1,12 +1,10 @@
 import React from 'react'
-import Menu from '../components/Menu'
+import Menu from '../components/Menu.jsx'
 
 var menuData = [
   {title: "Home", path:""},
-  {title: "Browse", path:"Browse"},
+  {title: "Browse", path:"Browse?wait=1000"},
   {title: "About", path:"about"},
-  {title: "Timer", path:"timer"},
-  {title: "Message", path:"chat"},
   {title: "Not Found", path:"this_url_doesnt_exist"},
 ]
 

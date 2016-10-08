@@ -1,30 +1,27 @@
-'use strict';
-
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
 import { Provider } from 'mobx-react'
 
-import fetchData from '../utils/fetchData'
+import fetchData from '../client/utils/fetchData'
 
-import Html from '../utils/Html'
+import Html from '../client/utils/Html'
 
-import createState from '../../client/state'
-import createRoutes from '../../client/routes'
+import {createServerState} from '../client/state'
+import createRoutes from '../client/routes'
 
-import timerStore from '../../client/containers/pages/Timer/store'
-import messageStore from '../../client/containers/pages/Message/store'
+// Get actions object
+import actions from '../client/actions'
 
-module.exports = function() {
-  return function(req, res, next) {
+// Handles page rendering ( for isomorphic / server-side-rendering too )
+//----------------------
+export default (req, res) => {
+
     // Create state to transfer
-    const state = createState()
+    const state = createServerState()
 
     // Set host variable to header's host
     state.app.host = req.headers.host
-
-    // Create store object to transfer
-    const store = {timerStore, messageStore}
 
     // Prepare for routing
     let matchRoutes = {
@@ -40,12 +37,11 @@ module.exports = function() {
 
         let statusCode = renderProps.routes[1].path !== '*' ? 200 : 404 // Check for "Not Found" page ( in this case we have path "*" ) and use code 404 if that's the case
 
-        return fetchData(renderProps, state, store).then(() => {
-            const content = ReactDOMServer.renderToStaticMarkup(<Provider {...{state, store}}><Html><RouterContext {...renderProps}/></Html></Provider>)
+        return fetchData(renderProps, state, actions).then(() => {
+            const content = ReactDOMServer.renderToStaticMarkup(<Provider state={state} actions={actions} ><Html><RouterContext {...renderProps}/></Html></Provider>)
             return res.status(statusCode).send('<!DOCTYPE html>\n' + content)
         }).catch((err) => {
             res.status(400).send('400: An error has occured : ' + err)
         })
     })
-  };
-};
+}

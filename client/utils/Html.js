@@ -12,9 +12,9 @@ export default class Html extends React.Component {
         const state = this.props.state
 
         // Setup devServerURL accordingly ( webpack dev server has a different port )
-        const isProd = process.env.NODE_ENV === 'production2'
+        const isProd = process.env.NODE_ENV === 'production'
         const devServerURL = isProd ? '/public' : 'http://'+state.app.host.replace(3030, 8080)
-
+        
         // Setup metadata
         let metadata = {
             title: state.app.title,

@@ -3,27 +3,26 @@ import { render } from 'react-dom'
 import { Provider } from 'mobx-react'
 import { Router, RouterContext, browserHistory } from 'react-router'
 
-import createState from './state'
+import { createClientState } from './state'
 import createRoutes from './routes'
 
-import autorun from './autorun'
+import autorun from './autorun.js'
 
-import timerStore from './containers/pages/Timer/store'
-import messageStore from './containers/pages/Message/store'
+// Get actions object
+import actions from './actions'
 
 // Import our styles
 require('./assets/css/index.scss')
 
-// Initialize stores & inject server-side state into front-end
-const state = createState(window.__STATE)
-const store = {timerStore, messageStore}
+// Initialize stores
+const state = createClientState()
 
 // Setup autorun ( for document title change )
 autorun(state)
 
-// Wrap RouterContext with Provider for state transfer
+// Wrap RouterContext with Provider for state transfer 
 function createElement(props) {
-    return <Provider {...{state, store}}>
+    return <Provider state={state} actions={actions} >
         <RouterContext {...props} />
     </Provider>
 }
@@ -35,11 +34,13 @@ function onRouterUpdate() {
         ignoreFirstLoad=false
         return
     }
-    //console.log("Page changed, executing fetchData")
-    let params = this.state.params;
+
+    // Page changed, executing fetchData
+    let params = this.state.params
+    let query = this.state.location.query
 
     this.state.components.filter(c => c.fetchData).forEach(c => {
-        c.fetchData({ state, params, store })
+        c.fetchData({ state, params, actions, query })
     })
 }
 
